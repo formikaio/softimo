@@ -1,8 +1,8 @@
 {
-    "name": "n3m3s7s/softimo",
+    "name": "formikaio/softimo",
     "version": "0.1.4",
     "description": "Convert and optimize images with Glide, both server-side and on-the-fly",
-    "homepage": "https://github.com/n3m3s7s/soft",
+    "homepage": "https://github.com/formikaio/soft",
     "license": "MIT",
     "authors": [
         {

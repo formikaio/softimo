@@ -11,6 +11,12 @@ class SoftServer extends Soft
         parent::__construct();
 
         $param = $_GET['param'];
+                
+        // If loading from the command line, use the first argument as param
+        if (php_sapi_name() == 'cli') {
+            $param = $_SERVER['argv'][1] ?? '';
+        }
+        
         Utils::log($param,'Modification parameter');
         $command = explode('/',$param)[0];
         $sourceFile = str_replace($command.'/','',$param);
@@ -124,6 +130,12 @@ class SoftServer extends Soft
     public function response(){
 
         Utils::log($this->outputFile,'OUTPUT FILE');
+
+        // If loading from the command line, response is the output file path
+        if (php_sapi_name() == 'cli') {
+            echo $this->outputFile;
+            exit();
+        }
 
         try{
             $img = Image::make($this->outputFile);
